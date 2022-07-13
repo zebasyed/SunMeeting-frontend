@@ -9,6 +9,7 @@ import { SharedDataService } from './shared/services/shared-data.service';
 export class AppComponent implements OnInit{
   title = 'meetings';
   isUserLoggedIn: boolean;
+  isUserInMeetList = false;
   constructor(private sharedDataService: SharedDataService) {}
 
   ngOnInit(): void {
@@ -16,4 +17,9 @@ export class AppComponent implements OnInit{
         this.isUserLoggedIn = res;
       });
   }
+
+  ngDoCheck(){
+    this.isUserInMeetList = this.sharedDataService.isUserInMeetList
+  }
+
 }

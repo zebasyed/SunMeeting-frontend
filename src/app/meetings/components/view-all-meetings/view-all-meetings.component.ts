@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetMeetingService } from '../../services/getMeetings.service';
+import { SharedDataService } from 'src/app/shared/services/shared-data.service';
 
 @Component({
   selector: 'app-view-all-meetings',
@@ -8,9 +9,10 @@ import { GetMeetingService } from '../../services/getMeetings.service';
 })
 export class ViewAllMeetingsComponent implements OnInit {
   meetingsData;
-  constructor(private getMeetings: GetMeetingService) { }
+  constructor(private getMeetings: GetMeetingService, private sharedDataService : SharedDataService) { }
 
   ngOnInit(): void {
+    this.sharedDataService.isUserInMeetList = true;
     this.fetchMeetings();
   }
 

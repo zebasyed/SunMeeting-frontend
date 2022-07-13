@@ -1,7 +1,9 @@
 /**  =====================
       Authentication css start
 ==========================  **/
+// @import "../../../../scss/settings/custom-variables"; 
 @import "../../../../scss/settings/theme-variables";
+
 
 .auth-wrapper {
   position: relative;
@@ -84,6 +86,20 @@
       position: relative;
       padding: 15px;
       z-index: 5;
+      
+
+        h3 {
+            margin-top: 0;
+        }
+        
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
 
       &:not(.container) {
           width: 400px;
@@ -116,7 +132,7 @@
       display: inline-flex;
       align-items: center;
       left: auto;
-      float: right;
+      //float: right;
 
       > * {
           position: relative;
@@ -190,7 +206,7 @@
   background-position: center;
 
   .auth-content {
-      padding: 70px 40px;
+      padding: 40px 40px;
   }
 }
 /* image varient End */
@@ -239,7 +255,7 @@ input[type=text], select, textarea{
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: left;
+    ////float: left;
   }
   button{
     background-color: #04AA6D;
@@ -249,7 +265,7 @@ input[type=text], select, textarea{
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: right;
+    ////float: right;
   }
   /* Style the container */
   .container {
@@ -258,21 +274,21 @@ input[type=text], select, textarea{
     padding: 20px;
   }
   
-  /* Floating column for labels: 25% width */
+  /* //floating column for labels: 25% width */
   .col-25 {
-    float: left;
+    //float: left;
     width: 25%;
     margin-top: 6px;
   }
   
-  /* Floating column for inputs: 75% width */
+  /* //floating column for inputs: 75% width */
   .col-75 {
-    float: left;
+    //float: left;
     width: 75%;
     margin-top: 6px;
   }
   
-  /* Clear floats after the columns */
+  /* Clear //floats after the columns */
   .row:after {
     content: "";
     display: table;
@@ -288,5 +304,8 @@ input[type=text], select, textarea{
   }
 
   .error{
-      color: indianred;
+    color: indianred;
+    margin-bottom: 10px;
   }
+
+  

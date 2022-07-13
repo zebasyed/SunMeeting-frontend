@@ -7,3 +7,7 @@
 
 @import "./../src/scss/settings/custom-variables";
 @import "./../src/scss/settings/theme-variables";
+
+* {
+    font-family: sans-serif !important;
+}

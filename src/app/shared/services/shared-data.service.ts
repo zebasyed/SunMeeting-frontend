@@ -7,6 +7,7 @@ export class SharedDataService {
 
   isUserLoggedIn = new BehaviorSubject(false);
   private loggedInUser = {};
+  isUserInMeetList :boolean;
 
   // set isUserLogIn(value: boolean) {
   //   this.isUserLoggedIn = value;

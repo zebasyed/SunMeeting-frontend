@@ -44,7 +44,9 @@
             formControlName="meetingParticipant"
           />
         </div>
-
+        <div *ngIf="!submit" class="error">
+          {{ErrorLine}}
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

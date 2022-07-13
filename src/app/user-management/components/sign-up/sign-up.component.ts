@@ -15,6 +15,9 @@ export class SignUpComponent implements OnInit {
   isSubmit = true ;
   isPasswordWrong = false;
   passwardRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+  errorText = "Please Fill the Form";
+  errorTextPassword = "Enter a Valid Password(minunum 6 , with minimum one capital lettter , one minimum special character and one minimum number)";
+  ErrorLine;
 
   constructor(private authenticateService: AuthenticateService) {}
 
@@ -47,6 +50,13 @@ export class SignUpComponent implements OnInit {
 
     if(!this.signupForm.valid){
       this.isSubmit = false
+      if(this.signupForm.get('password').invalid){
+        this.ErrorLine = this.errorTextPassword;
+      }else {
+        this.ErrorLine = this.errorText;
+      }
+      console.log(this.ErrorLine);
+      return
     }
 
     

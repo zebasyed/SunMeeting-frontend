@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup,Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { SharedDataService } from "src/app/shared/services/shared-data.service";
 import { CreateNewMeeting } from "../../services/createNewMeeting.service";
@@ -11,6 +11,8 @@ import { CreateNewMeeting } from "../../services/createNewMeeting.service";
 })
 export class ScheduleNewMeetingComponent implements OnInit {
   scheduleNewMeetingForm: FormGroup;
+  ErrorLine;
+  submit = true;
   constructor(
     private sharedDataService: SharedDataService,
     private createNewMeeting: CreateNewMeeting,
@@ -18,11 +20,12 @@ export class ScheduleNewMeetingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.sharedDataService.isUserInMeetList = false;
     this.scheduleNewMeetingForm = new FormGroup({
-      meetingDate: new FormControl(),
-      meetingTime: new FormControl(),
-      meetingDesc: new FormControl(),
-      meetingParticipant: new FormControl(),
+      meetingDate: new FormControl("",Validators.required),
+      meetingTime: new FormControl("",Validators.required),
+      meetingDesc: new FormControl("",Validators.required),
+      meetingParticipant: new FormControl("",Validators.required),
     });
   }
 
@@ -32,6 +35,11 @@ export class ScheduleNewMeetingComponent implements OnInit {
   }
 
   onSubmit(data) {
+    if(this.scheduleNewMeetingForm.invalid){
+      this.submit = false;
+      this.ErrorLine = "Please complete the form above"
+      return
+    }
     let userData: any = this.sharedDataService.loggedInUserData;
     let obj = {
       organizer: userData.emailId,
